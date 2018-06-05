@@ -6,17 +6,18 @@ class Person:
 	def __str__(self):
 		return self.last_name + ", " + self.first_name
 
-	def CreateCharacter(JobClass):
-		first = input("PLEASE TYPE YOUR FIRST NAME")
-		last = input("PLEASE TYPE YOUR LAST NAME")
-		return JobClass(first, last)
-
 
 
 class Doctor(Person):
 
 	def __str__(self):
 		return "Dr." + self.last_name + ", " + self.first_name
+
+	def CreateCharacter(JobClass):
+		first = input("PLEASE TYPE YOUR FIRST NAME")
+		last = input("PLEASE TYPE YOUR LAST NAME")
+
+
 
 class Lawyer(Person):
 
@@ -26,15 +27,44 @@ class Lawyer(Person):
 	def CreateCharacter(JobClass):
 		first = input("PLEASE TYPE YOUR FIRST NAME")
 		last = input("PLEASE TYPE YOUR LAST NAME")
-		return Lawyer(first, last)
+
 
 options = {
 	"Doctor" : Doctor,
 	"Lawyer" : Lawyer,
-	"Person" : Person
+	"Person" : Person,
 }
 
 
-jobClassInput = input("Please TYPE your job")
+
+class Companion(Person):
+
+
+   def __str__(self):
+	   return  self.last_name + ", " + self.first_name
+
+   def CreateCharacter(Companion):
+	   first = input("PLEASE TYPE THEIR FIRST NAME")
+	   last = input("PLEASE TYPE THEIR LAST NAME")
+	   return Companion(first, last)
+
+
+
+
+jobClassInput = input("Please TYPE your job: ")
 JobClass = options[jobClassInput]
-steve = JobClass.CreateCharacter( JobClass )
+Person = JobClass.CreateCharacter(JobClass)
+print(Person)
+
+def main():
+	Companions = [
+		Companion.CreateCharacter(Companion),
+		Companion.CreateCharacter(Companion),
+		Companion.CreateCharacter(Companion),
+		Companion.CreateCharacter(Companion),
+	]
+
+
+print(Companion)
+
+main()
